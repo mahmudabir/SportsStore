@@ -18,9 +18,7 @@ export class ProductRepository {
         });
     }
     getProducts(category?: string): Product[] {
-        return this.products
-            // tslint:disable-next-line: triple-equals
-            .filter(p => category == null || category == p.category);
+        return this.products.filter(p => category == null || category === p.category || category === '');
     }
 
     getProduct(id: number): Product {
