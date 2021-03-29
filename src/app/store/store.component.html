@@ -37,14 +37,14 @@
 
             <div class="form-inline float-left mr-1">
                 <select class="form-control" [value]="productsPerPage" [(ngModel)]="productsPerPage" (change)="changePage(1)">
-                <option value="3">3 per Page</option>
+                <option value="2">2 per Page</option>
                 <option value="4">4 per Page</option>
                 <option value="6">6 per Page</option>
                 <option value="8">8 per Page</option>
                 </select>
             </div>
             <div class="btn-group float-right">
-                <button *counter="let page of pageCount" (click)="changePage(page)" class="btn btn-outline-primary" [class.active]="page == selectedPage">
+                <button *counter="let page of pageCount" (click)="changePage(page)" class="btn btn-outline-primary" [class.active]="page == selectedPage" routerLink="cart">
                 {{page}}
                 </button>
             </div>

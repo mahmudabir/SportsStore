@@ -2,6 +2,7 @@ import { Product } from './../model/product.model';
 import { Component } from '@angular/core';
 import { ProductRepository } from '../model/product.repository';
 import { Cart } from '../model/cart.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class StoreComponent {
 
     constructor(
         private repository: ProductRepository,
-        private cart: Cart
+        private cart: Cart,
+        public router: Router
     ) { }
 
     get products(): Product[] {
@@ -64,6 +66,7 @@ export class StoreComponent {
     // tslint:disable-next-line: typedef
     addProductToCart(product: Product) {
         this.cart.addLine(product);
+        // this.router.navigateByUrl('cart');
     }
 }
 
