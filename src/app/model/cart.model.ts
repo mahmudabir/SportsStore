@@ -23,12 +23,42 @@ export class Cart {
     }
 
     // tslint:disable-next-line: typedef
-    updateQuantity(product: Product, quantity: number) {
+    updateQuantity(product: Product, quantity: string) {
         // tslint:disable-next-line: no-shadowed-variable
         let line = this.lines.find(line => line.product.id === product.id);
 
         if (line !== undefined) {
             line.quantity = Number(quantity);
+        }
+
+        this.reCalculate();
+    }
+
+
+    // tslint:disable-next-line: typedef
+    increaseQuantity(product: Product) {
+        // tslint:disable-next-line: no-shadowed-variable
+        let line = this.lines.find(line => line.product.id === product.id);
+
+        if (line !== undefined) {
+            if (line.quantity < 10) {
+                line.quantity = Number(line.quantity + 1);
+            }
+        }
+
+        this.reCalculate();
+    }
+
+    // tslint:disable-next-line: typedef
+    decreaseQuantity(product: Product) {
+        // tslint:disable-next-line: no-shadowed-variable
+        let line = this.lines.find(line => line.product.id === product.id);
+
+        if (line !== undefined) {
+            line.quantity = Number(line.quantity - 1);
+            if (line.quantity === 0) {
+                this.removeLine(line.product.id);
+            }
         }
 
         this.reCalculate();
