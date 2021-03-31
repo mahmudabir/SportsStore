@@ -6,4 +6,10 @@ import { StaticDataSource } from './static.datasource';
 @NgModule({
     providers: [ProductRepository, StaticDataSource, Cart]
 })
-export class ModelModule { }
+export class ModelModule {
+
+    // tslint:disable-next-line: typedef
+    ToNumber(data: string) {
+        return Number(data);
+    }
+}

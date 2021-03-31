@@ -28,7 +28,13 @@ export class Cart {
         let line = this.lines.find(line => line.product.id === product.id);
 
         if (line !== undefined) {
-            line.quantity = Number(quantity);
+            if (line.quantity + Number(quantity) < 10) {
+                line.quantity = Number(quantity);
+            } else if (line.quantity === 0) {
+                this.removeLine(line.product.id);
+            } else {
+
+            }
         }
 
         this.reCalculate();

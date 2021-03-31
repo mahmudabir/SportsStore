@@ -29,9 +29,9 @@
                     </tr>
                     <tr *ngFor="let line of cart.lines">
                         <td>
-                            <button class="btn btn-outline-danger" (click)="cart.decreaseQuantity(line.product)"><i class="fa fa-minus"></i></button>
-                            <input type="number" class="form-control-sm" style="width:5em" [min]="1" [value]="line.quantity" #lineQuantity (change)="cart.updateQuantity(line.product, lineQuantity.value)" disabled/>
-                            <button class="btn btn-outline-success" (click)="cart.increaseQuantity(line.product)"><i class="fa fa-plus"></i></button>
+                            <button class="btn btn-outline-danger" (click)="(model.ToNumber(lineQuantity.value)) > 1 ? cart.decreaseQuantity(line.product) : cart.removeLine(line.product.id) "><i class="fa fa-minus"></i></button>
+                            <input type="number" class="form-control-sm pb-3 pt-3" style="width:5em" [min]="1" [value]="line.quantity" #lineQuantity (change)="cart.updateQuantity(line.product, lineQuantity.value)" disabled/>
+                            <button class="btn btn-outline-success" (click)="(model.ToNumber(lineQuantity.value)) >= 10 ? null : cart.increaseQuantity(line.product)"><i class="fa fa-plus"></i></button>
                         </td>
                         <td>{{line.product.name}}</td>
                         <td class="text-right">

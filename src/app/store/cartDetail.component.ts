@@ -1,3 +1,4 @@
+import { ModelModule } from './../model/model.module';
 import { Cart } from './../model/cart.model';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 
 export class CartDetailComponent {
-    constructor(public cart: Cart) {
+    constructor(public cart: Cart, public model: ModelModule) {
 
     }
 }
