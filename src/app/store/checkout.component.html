@@ -12,7 +12,7 @@
         <h2>Thanks!</h2>
         <p>Thanks for placing your order.</p>
         <p>We'll ship your goods as soon as possible.</p>
-        <button class="btn btn-primary" routerLink="/store">Return to Store</button>
+        <button class="btn btn-primary" routerLink="">Return to Store</button>
     </div>
 
 
@@ -20,7 +20,7 @@
 
         <div class="form-group">
             <label>Name</label>
-            <input class="form-control" #name="ngModel" name="name" [(ngModel)]="order.name" required />
+            <input class="form-control" #name="ngModel" name="name" [(ngModel)]="order.name" required/>
             <span *ngIf="submitted && name.invalid" class="text-danger">
                 Please enter your name
             </span>
@@ -28,7 +28,7 @@
 
         <div class="form-group">
             <label>Address</label>
-            <input class="form-control" #address="ngModel" name="address" [(ngModel)]="order.address" required />
+            <input class="form-control" #address="ngModel" name="address" [(ngModel)]="order.address" required/>
             <span *ngIf="submitted && address.invalid" class="text-danger">
                 Please enter your address
             </span>
