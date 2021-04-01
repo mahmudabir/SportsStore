@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { RestDataSource } from './rest.datasource';
 import { OrderRepository } from './order.repository';
 import { Order } from './order.model';
@@ -9,9 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     // for getting data from API
-    // imports: [HttpClientModule],
-    // providers: [ProductRepository, Cart, Order, OrderRepository, { provide: StaticDataSource, useClass: RestDataSource }]
-    providers: [ProductRepository, Cart, Order, OrderRepository, StaticDataSource]
+    imports: [HttpClientModule],
+    providers: [ProductRepository, Cart, Order, OrderRepository, { provide: StaticDataSource, useClass: RestDataSource },
+        RestDataSource, AuthService]
+    // providers: [ProductRepository, Cart, Order, OrderRepository, StaticDataSource]
 })
 
 export class ModelModule {

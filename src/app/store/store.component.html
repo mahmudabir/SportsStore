@@ -11,11 +11,14 @@
 
         <div class="col-3 p-2">
             <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">
-    Home
-    </button>
+                Home
+            </button>
             <button *ngFor="let cat of categories" class="btn btn-outline-primary btn-block" [class.active]="cat == selectedCategory" (click)="changeCategory(cat)">
-    {{cat}}
-    </button>
+                {{cat}}
+            </button>
+            <button class="btn btn-block btn-danger mt-5" routerLink="admin">
+                Admin
+            </button>
         </div>
 
         <div class="col-9 p-2">
