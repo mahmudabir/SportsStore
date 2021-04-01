@@ -1,7 +1,7 @@
 import { Order } from './order.model';
 import { Product } from './product.model';
-import { from, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
@@ -36,4 +36,42 @@ export class RestDataSource {
             return response.success;
         }));
     }
+
+    saveProduct(product: Product): Observable<Product> {
+        return this.http.post<Product>(this.baseUrl + 'products', product, this.getOptions());
+    }
+
+    updateProduct(product: Product): Observable<Product> {
+        return this.http.put<Product>(`${this.baseUrl}products/${product.id}`, product, this.getOptions());
+    }
+
+    deleteProduct(id: number): Observable<Product> {
+        return this.http.delete<Product>(`${this.baseUrl}products/${id}`, this.getOptions());
+    }
+
+    getOrders(): Observable<Order[]> {
+        return this.http.get<Order[]>(this.baseUrl + 'orders', this.getOptions());
+    }
+
+    deleteOrder(id: number): Observable<Order> {
+        return this.http.delete<Order>(`${this.baseUrl}orders/${id}`,
+            this.getOptions());
+    }
+
+    updateOrder(order: Order): Observable<Order> {
+        return this.http.put<Order>(`${this.baseUrl}orders/${order.id}`,
+            order, this.getOptions());
+    }
+
+
+    // tslint:disable-next-line: typedef
+    private getOptions() {
+        return {
+            headers: new HttpHeaders({
+                // tslint:disable-next-line: object-literal-key-quotes
+                'Authorization': `Bearer<${this.auth_token}>`
+            })
+        };
+    }
+
 }

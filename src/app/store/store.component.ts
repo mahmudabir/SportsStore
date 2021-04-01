@@ -68,6 +68,15 @@ export class StoreComponent {
         this.cart.addLine(product);
         // this.router.navigateByUrl('cart');
     }
+
+    // tslint:disable-next-line: typedef
+    reload() {
+        window.location.reload();
+    }
+
+    ngOnInit() {
+        console.log('ngOnInit called');
+    }
 }
 
 

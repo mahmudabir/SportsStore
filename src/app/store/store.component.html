@@ -21,7 +21,7 @@
             </button>
         </div>
 
-        <div class="col-9 p-2">
+        <div class="col-9 p-2" *ngIf="products.length != 0; else noProductsAvailable">
 
             <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
                 <h4>
@@ -54,6 +54,14 @@
 
 
         </div>
+
+        <ng-template #noProductsAvailable>
+            <div class="col-9 p-2" *ngIf="products.length == 0">
+                <div class="bg-danger rounded" (click)="reload()">
+                    <h1 class="text-white text-center">No Product Available</h1>
+                </div>
+            </div>
+        </ng-template>
 
     </div>
 </div>
