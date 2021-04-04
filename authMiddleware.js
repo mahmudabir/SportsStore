@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const APP_SECRET = "myappsecret";
 const USERNAME = "admin";
-const PASSWORD = "secret";
+const PASSWORD = "admin";
 
 const mappings = {
     get: ["/api/orders", "/orders"],

@@ -77,6 +77,11 @@ export class StoreComponent {
     ngOnInit() {
         console.log('ngOnInit called');
     }
+
+    // being called after template loading
+    ngAfterViewInit() {
+        console.log('ngAfterViewInit called');
+    }
 }
 
 
