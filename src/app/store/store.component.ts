@@ -74,11 +74,13 @@ export class StoreComponent {
         window.location.reload();
     }
 
+  // tslint:disable-next-line:typedef use-lifecycle-interface
     ngOnInit() {
         console.log('ngOnInit called');
     }
 
     // being called after template loading
+  // tslint:disable-next-line:typedef use-lifecycle-interface
     ngAfterViewInit() {
         console.log('ngAfterViewInit called');
     }
